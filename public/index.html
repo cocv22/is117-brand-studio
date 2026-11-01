@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="White T-shirt with a choice of two encouraging kanji concepts. This classroom demo does not take orders or payments."
+      content="White T-shirt with a choice of three encouraging kanji concepts. This classroom demo does not take orders or payments."
     />
     <title>Never Say Never — T-shirt with encouraging kanji</title>
     <link rel="icon" href="data:," />
@@ -38,8 +38,8 @@
           >Studio <span aria-hidden="true">↗</span></a
         >
       </nav>
-      <a class="bag-link" href="#demo-bag" aria-label="View demo bag">
-        Demo bag <span id="bag-count" class="bag-count">0</span>
+      <a class="cart-link" href="#cart" aria-label="View cart">
+        Cart <span id="cart-count" class="cart-count">0</span>
       </a>
     </header>
 
@@ -49,51 +49,20 @@
           <div class="visual-label">
             <span>001 / Keep moving</span><span>Early concept</span>
           </div>
-          <fieldset class="design-fieldset" aria-describedby="design-help">
-            <legend class="visually-hidden">Choose a kanji mark concept</legend>
-            <p id="design-help" class="field-help design-help">
-              Two draft marks for the same white T-shirt.
-            </p>
-            <div class="design-options">
-              <label class="design-option">
-                <input type="radio" name="design" value="FLY · 飛" checked />
-                <span class="design-option-content">
-                  <img
-                    src="assets/resilience-fly-shirt.svg"
-                    alt="Relaxed white T-shirt with the FLY kanji in white inside a black circle"
-                    width="360"
-                    height="430"
-                    fetchpriority="high"
-                  />
-                  <span class="shirt-meaning" aria-hidden="true">FLY</span>
-                  <span class="design-option-label"
-                    >FLY <span lang="ja">飛</span></span
-                  >
-                  <span class="design-option-context"
-                    >To the heights you haven't reached.</span
-                  >
-                </span>
-              </label>
-              <label class="design-option">
-                <input type="radio" name="design" value="FIGHT · 闘" />
-                <span class="design-option-content">
-                  <img
-                    src="assets/resilience-fight-shirt.svg"
-                    alt="Relaxed white T-shirt with the FIGHT kanji in white inside a black circle"
-                    width="360"
-                    height="430"
-                  />
-                  <span class="shirt-meaning" aria-hidden="true">FIGHT</span>
-                  <span class="design-option-label"
-                    >FIGHT <span lang="ja">闘</span></span
-                  >
-                  <span class="design-option-context"
-                    >To the opponents you will face.</span
-                  >
-                </span>
-              </label>
-            </div>
-          </fieldset>
+          <div class="shirt-preview-wrap">
+            <img
+              id="shirt-preview"
+              class="shirt-image"
+              src="assets/resilience-fly-shirt.svg"
+              alt="Relaxed white FLY T-shirt with 飛 in white inside a black circle"
+              width="360"
+              height="430"
+              fetchpriority="high"
+            />
+            <span id="shirt-meaning" class="shirt-meaning" aria-hidden="true"
+              >FLY</span
+            >
+          </div>
           <fieldset class="ink-fieldset" aria-describedby="ink-help">
             <legend>Choose kanji color</legend>
             <p id="ink-help" class="field-help ink-help">
@@ -168,11 +137,52 @@
             / draft identity
           </p>
           <h1 id="product-title">T-shirt with encouraging kanji.</h1>
-          <div class="price-row">
-            <p class="price">$28 <span>USD</span></p>
+          <div class="price-row" data-unit-price="28">
+            <p class="price">$28.00 <span>USD</span></p>
             <span class="micro-label">Fictional demo price</span>
           </div>
           <form id="product-form" class="product-form" novalidate>
+            <fieldset class="symbol-fieldset" aria-describedby="symbol-help">
+              <legend>Choose symbol</legend>
+              <p id="symbol-help" class="field-help">
+                Choose which draft mark appears on the shirt.
+              </p>
+              <div class="symbol-options">
+                <label class="symbol-option">
+                  <input type="radio" name="design" value="FLY · 飛" checked />
+                  <span class="symbol-option-content">
+                    <span class="symbol-option-title"
+                      >FLY <span lang="ja">飛</span></span
+                    >
+                    <span class="symbol-option-context"
+                      >To the heights you haven't reached.</span
+                    >
+                  </span>
+                </label>
+                <label class="symbol-option">
+                  <input type="radio" name="design" value="FIGHT · 闘" />
+                  <span class="symbol-option-content">
+                    <span class="symbol-option-title"
+                      >FIGHT <span lang="ja">闘</span></span
+                    >
+                    <span class="symbol-option-context"
+                      >To the opponents you will face.</span
+                    >
+                  </span>
+                </label>
+                <label class="symbol-option">
+                  <input type="radio" name="design" value="DREAM · 夢" />
+                  <span class="symbol-option-content">
+                    <span class="symbol-option-title"
+                      >DREAM <span lang="ja">夢</span></span
+                    >
+                    <span class="symbol-option-context"
+                      >To the dreams you have dreamed.</span
+                    >
+                  </span>
+                </label>
+              </div>
+            </fieldset>
             <fieldset aria-describedby="size-help size-error">
               <legend>Choose a size</legend>
               <p id="size-help" class="field-help">
@@ -201,11 +211,11 @@
                 >
               </div>
               <p id="size-error" class="field-error" role="alert" hidden>
-                Choose a size before adding the shirt to your demo bag.
+                Choose a size before adding the shirt to your cart.
               </p>
             </fieldset>
             <button class="button button-primary add-button" type="submit">
-              Add to demo bag <span aria-hidden="true">↗</span>
+              Add to cart <span aria-hidden="true">↗</span>
             </button>
           </form>
           <p class="demo-disclaimer">
@@ -219,7 +229,7 @@
             </div>
             <div>
               <dt>Mark</dt>
-              <dd>Two draft concepts</dd>
+              <dd>Three draft concepts</dd>
             </div>
             <div>
               <dt>Availability</dt>
@@ -229,31 +239,33 @@
         </div>
       </section>
 
-      <section
-        id="demo-bag"
-        class="bag-section wrap"
-        aria-labelledby="bag-title"
-      >
+      <section id="cart" class="cart-section wrap" aria-labelledby="cart-title">
         <div>
           <p class="eyebrow">A small working interaction</p>
-          <h2 id="bag-title">Your demo bag.</h2>
+          <h2 id="cart-title">Your cart.</h2>
         </div>
-        <div class="bag-details">
+        <div class="cart-details">
           <p
-            id="bag-status"
-            class="bag-message"
+            id="cart-status"
+            class="cart-message"
             role="status"
             aria-live="polite"
             aria-atomic="true"
-          >
-            Your demo bag is empty. Choose a size to try it.
+          ></p>
+          <p id="cart-empty" class="cart-empty">
+            Your cart is empty.
+            <a href="#product-form">Add items to your cart</a>
           </p>
-          <ul id="bag-items" class="bag-items"></ul>
-          <button id="clear-bag" class="text-button" type="button" disabled>
-            Empty demo bag
+          <ul id="cart-items" class="cart-items"></ul>
+          <p id="cart-total-row" class="cart-total-row" hidden>
+            Cart total <strong id="cart-total">$0.00</strong>
+          </p>
+          <button id="clear-cart" class="text-button" type="button" disabled>
+            Clear cart
           </button>
           <p class="field-help">
-            The bag resets when this page reloads. There is no checkout.
+            This classroom cart resets when the page reloads. There is no
+            checkout.
           </p>
         </div>
       </section>

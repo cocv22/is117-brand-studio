@@ -2,9 +2,9 @@
 
 **The same white T-shirt can carry very different meanings.** Develop a brand for it with an AI collaborator, then make those decisions visible in a professional website and a live style guide.
 
-This student project is a draft storefront for **Never Say Never**, a resilience concept. It presents one white T-shirt with FLY and FIGHT kanji marks, four ink colors, and a shine option for colored ink. The related style guide and design explorations document the current direction.
+This student project is a draft storefront for **Never Say Never**, a resilience concept. It presents one white T-shirt with FLY, FIGHT, and DREAM kanji marks, four ink colors, and a shine option for colored ink. The related style guide and design explorations document the current direction.
 
-**Current status:** BRAND-001 is an implementation draft on a feature branch. The site is a classroom demo with no checkout, orders, payment, accounts, or persistence. No public deployment has been verified.
+**Current status:** The BRAND-001 storefront implementation is on `main`; issue #1 remains open, no pull request is recorded, and no public deployment has been verified. CART-001 is being developed locally on `feature/cart-items-removal` under issue #2. The site is a classroom demo with no checkout, orders, payment, accounts, or persistence.
 
 **A short record, visible to you:** your AI coach updates [LEARNING.md](LEARNING.md) with brief task-related explanations, observations and help received. It is AI-drafted, not a full transcript, and may be public with your repository. Review it and correct or remove excerpts before they are committed or pushed. Your instructor uses it alongside the project with this [simple three-part rubric](docs/assessment.md); the AI does not assign your grade.
 
@@ -31,9 +31,9 @@ This student project is a draft storefront for **Never Say Never**, a resilience
 
    Open the address printed by the server in your browser (normally `http://127.0.0.1:5173`). Leave this terminal running while you work. The agent can edit files and run checks in its separate project terminal.
 
-Save an HTML, CSS, JavaScript, or asset file under `public/` to refresh the local browser automatically; unsaved edits do not appear. A refresh resets the temporary demo bag. `npm start` is an alias for this same development mode. Press **Ctrl+C** in the terminal running the server to stop it. To switch to a plain preview, stop the server first, then use `npm run preview` and reopen its printed address. Refresh the browser yourself after saving. These commands serve your local files; publishing to GitHub Pages is a later step.
+Save an HTML, CSS, JavaScript, or asset file under `public/` to refresh the local browser automatically; unsaved edits do not appear. A refresh resets the temporary cart. `npm start` is an alias for this same development mode. Press **Ctrl+C** in the terminal running the server to stop it. To switch to a plain preview, stop the server first, then use `npm run preview` and reopen its printed address. Refresh the browser yourself after saving. These commands serve your local files; publishing to GitHub Pages is a later step.
 
-**First success checkpoint:** you can see the neutral white T-shirt page, choose a size, and add it to the demo bag. Tell the agent what you actually see. The bag is a demonstration; it does not take payments, persist between visits, or place orders.
+**First success checkpoint:** you can see the neutral white T-shirt page, choose a size, and add it to the cart. Tell the agent what you actually see. The cart is a demonstration; it does not take payments, persist between visits, or place orders.
 
 If a command fails, paste the real error into the same chat. If the port is in use, let the agent help you stop your earlier preview or use `PORT=5175 npm run dev`, then open its printed address. You can ask for a hint, an example, or a small recommendation at any time. You do not need to know the branding vocabulary first.
 
@@ -76,7 +76,7 @@ Positive cases check intended behavior, such as adding a selected size. Negative
 
 Checks can find defects and some accessibility barriers. They do not verify that the page and guide express the same identity; compare their logo, typography, components, and voice in the browser. They cannot prove that your audience will value the brand, that a claim is true, or that every person can use the site. Your own browser observation adds evidence; it does not stand in for customer research.
 
-After `BRAND-001`, choose **one** next cycle with less guidance: perhaps a useful brand story, a fit guide with supported information, or a richer demo bag. A real checkout would be a separate project decision.
+After `BRAND-001`, choose **one** next cycle with less guidance: perhaps a useful brand story, a fit guide with supported information, or a richer cart. A real checkout would be a separate project decision.
 
 ## Publish when you keep the site
 

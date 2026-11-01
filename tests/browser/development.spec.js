@@ -43,15 +43,15 @@ test("development refreshes saved HTML, CSS, JavaScript and assets; plain previe
     const originalTitle = await plain.title();
     await page.locator('input[name="size"][value="M"]').check();
     await page
-      .getByRole("button", { name: "Add to demo bag", exact: true })
+      .getByRole("button", { name: "Add to cart", exact: true })
       .click();
-    await expect(page.locator("#bag-count")).toHaveText("1");
+    await expect(page.locator("#cart-count")).toHaveText("1");
 
     await save("index.html", (html) =>
       html.replace("</title>", " — saved HTML</title>"),
     );
     await expect(page).toHaveTitle(`${originalTitle} — saved HTML`);
-    await expect(page.locator("#bag-count")).toHaveText("0");
+    await expect(page.locator("#cart-count")).toHaveText("0");
 
     await save(
       "styles.css",

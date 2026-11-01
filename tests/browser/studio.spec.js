@@ -1,64 +1,140 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-test("negative: choosing no size explains the problem and keeps the bag empty", async ({
+test("negative: choosing no size explains the problem and keeps the cart empty", async ({
   page,
 }) => {
   await page.goto("/");
-  await page
-    .getByRole("button", { name: "Add to demo bag", exact: true })
-    .click();
+  await page.getByRole("button", { name: "Add to cart", exact: true }).click();
   await expect(page.locator("#size-error")).toBeVisible();
   await expect(page.locator("#size-error")).not.toBeEmpty();
-  await expect(page.locator("#bag-count")).toHaveText("0");
+  await expect(page.locator("#cart-count")).toHaveText("0");
+  await expect(page.locator("#cart-empty")).toBeVisible();
 });
 
-test("positive: a shopper can choose sizes, add items, and empty the demo bag", async ({
+test("product price and selected shirt design are shown with two decimals", async ({
   page,
 }) => {
   await page.goto("/");
+  await expect(page.locator(".price")).toContainText("$28.00");
+  await expect(page.locator(".product-visual img")).toHaveCount(1);
+  const shirtPreview = page.locator("#shirt-preview");
+  await expect(shirtPreview).toHaveAttribute(
+    "src",
+    "assets/resilience-fly-shirt.svg",
+  );
+  await expect(page.getByRole("radio", { name: /FLY/ })).toBeChecked();
+  await page.getByRole("radio", { name: /FIGHT/ }).check();
+  await expect(shirtPreview).toHaveAttribute(
+    "src",
+    "assets/resilience-fight-shirt.svg",
+  );
+  await expect(page.locator("#shirt-meaning")).toHaveText("FIGHT");
+  await expect(page.getByRole("radio", { name: /FIGHT/ })).toBeChecked();
+  await page.getByRole("radio", { name: /DREAM/ }).check();
+  await expect(shirtPreview).toHaveAttribute(
+    "src",
+    "assets/resilience-dream-shirt.svg",
+  );
+  await expect(page.locator("#shirt-meaning")).toHaveText("DREAM");
+});
+
+test("DREAM · 夢 shows its context and is carried into the cart", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator(".symbol-options")).toContainText(
+    "To the dreams you have dreamed.",
+  );
+  await page.getByRole("radio", { name: /DREAM/ }).check();
+  await expect(page.locator("#shirt-preview")).toHaveAttribute(
+    "alt",
+    /DREAM T-shirt with 夢/,
+  );
   await page.locator('input[name="size"][value="M"]').check();
-  await page
-    .getByRole("button", { name: "Add to demo bag", exact: true })
-    .click();
-  await expect(page.locator("#bag-count")).toHaveText("1");
-  await expect(page.locator("#bag-status")).toContainText("M");
-  await expect(page.locator("#bag-items")).toContainText("FLY · 飛");
+  await page.getByRole("button", { name: "Add to cart", exact: true }).click();
+  await expect(page.locator("#cart-items")).toContainText("DREAM · 夢");
+});
+
+test("positive: a shopper can add shirts, see the total, remove one, and clear the cart", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator("#cart-empty")).toContainText(
+    "Your cart is empty.",
+  );
+  await expect(
+    page.getByRole("button", { name: "Clear cart", exact: true }),
+  ).toBeHidden();
+  await expect(
+    page.getByRole("link", { name: "Add items to your cart" }),
+  ).toHaveAttribute("href", "#product-form");
+  await page.locator('input[name="size"][value="M"]').check();
+  await page.getByRole("button", { name: "Add to cart", exact: true }).click();
+  await expect(page.locator("#cart-count")).toHaveText("1");
+  await expect(page.locator("#cart-status")).toContainText("M");
+  await expect(page.locator("#cart-items")).toContainText("FLY · 飛");
+  await expect(page.locator("#cart-items")).toContainText("$28.00");
+  await expect(page.locator("#cart-total")).toHaveText("$28.00");
   await page.locator('input[name="size"][value="L"]').check();
   await page.getByRole("radio", { name: /FIGHT/ }).check();
+  await page.getByRole("button", { name: "Add to cart", exact: true }).click();
+  await expect(page.locator("#cart-count")).toHaveText("2");
+  await expect(page.locator("#cart-items")).toContainText("FIGHT · 闘");
+  await expect(page.locator("#cart-items .cart-item-price")).toHaveCount(2);
+  await expect(page.locator("#cart-total")).toHaveText("$56.00");
   await page
-    .getByRole("button", { name: "Add to demo bag", exact: true })
+    .getByRole("button", {
+      name: /Remove White T-shirt.*FLY.*Size M from cart/,
+    })
     .click();
-  await expect(page.locator("#bag-count")).toHaveText("2");
-  await expect(page.locator("#bag-items")).toContainText("FIGHT · 闘");
+  await expect(page.locator("#cart-count")).toHaveText("1");
+  await expect(page.locator("#cart-items")).not.toContainText("FLY · 飛");
+  await expect(page.locator("#cart-items")).toContainText("FIGHT · 闘");
+  await expect(page.locator("#cart-total")).toHaveText("$28.00");
   await page
-    .getByRole("button", { name: "Empty demo bag", exact: true })
+    .getByRole("button", {
+      name: /Remove White T-shirt.*FIGHT.*Size L from cart/,
+    })
     .click();
-  await expect(page.locator("#bag-count")).toHaveText("0");
+  await expect(page.locator("#cart-count")).toHaveText("0");
+  await expect(page.locator("#cart-empty")).toBeVisible();
+  await expect(page.locator("#cart-total-row")).toBeHidden();
+  await expect(
+    page.getByRole("link", { name: "Add items to your cart" }),
+  ).toBeFocused();
+  await page.locator('input[name="size"][value="S"]').check();
+  await page.getByRole("button", { name: "Add to cart", exact: true }).click();
+  await page.getByRole("button", { name: "Clear cart", exact: true }).click();
+  await expect(page.locator("#cart-count")).toHaveText("0");
+  await expect(page.locator("#cart-empty")).toBeVisible();
+  await expect(page.locator("#cart-total-row")).toBeHidden();
   await page.reload();
-  await expect(page.locator("#bag-count")).toHaveText("0");
+  await expect(page.locator("#cart-count")).toHaveText("0");
 });
 
-test("kanji color updates both previews and remains attached to each bag item", async ({
+test("kanji color and symbol update the single preview and cart items", async ({
   page,
 }) => {
   await page.goto("/");
-  const shirtImages = page.locator(".design-option-content img");
+  const shirtImage = page.locator("#shirt-preview");
+  await expect(page.locator(".product-visual img")).toHaveCount(1);
   await expect(
     page.locator('input[name="kanji-color"][value="white"]'),
   ).toBeChecked();
 
   await page.locator('input[name="kanji-color"][value="gold"]').check();
-  await expect(shirtImages.nth(0)).toHaveAttribute(
+  await expect(shirtImage).toHaveAttribute(
     "src",
     "assets/resilience-fly-shirt-gold.svg",
   );
-  await expect(shirtImages.nth(1)).toHaveAttribute(
+  await page.getByRole("radio", { name: /FIGHT/ }).check();
+  await expect(shirtImage).toHaveAttribute(
     "src",
     "assets/resilience-fight-shirt-gold.svg",
   );
   for (const color of ["gold", "crimson", "skyblue"]) {
-    for (const design of ["fly", "fight"]) {
+    for (const design of ["fly", "fight", "dream"]) {
       for (const finish of ["", "-matte"]) {
         const response = await page.request.get(
           new URL(
@@ -79,41 +155,35 @@ test("kanji color updates both previews and remains attached to each bag item", 
   }
 
   await page.locator('input[name="size"][value="M"]').check();
-  await page
-    .getByRole("button", { name: "Add to demo bag", exact: true })
-    .click();
-  await expect(page.locator("#bag-items")).toContainText("Gold kanji");
-  await expect(page.locator("#bag-items")).toContainText("Shine");
+  await page.getByRole("button", { name: "Add to cart", exact: true }).click();
+  await expect(page.locator("#cart-items")).toContainText("Gold kanji");
+  await expect(page.locator("#cart-items")).toContainText("Shine");
 
   await page.locator('input[name="kanji-color"][value="crimson"]').check();
   await page.getByRole("radio", { name: /FIGHT/ }).check();
   await page.locator('input[name="size"][value="L"]').check();
-  await page
-    .getByRole("button", { name: "Add to demo bag", exact: true })
-    .click();
-  await expect(page.locator("#bag-items")).toContainText("Crimson kanji");
+  await page.getByRole("button", { name: "Add to cart", exact: true }).click();
+  await expect(page.locator("#cart-items")).toContainText("Crimson kanji");
   await page.locator('input[name="kanji-color"][value="skyblue"]').check();
-  await expect(shirtImages.nth(0)).toHaveAttribute(
+  await expect(shirtImage).toHaveAttribute(
     "src",
-    "assets/resilience-fly-shirt-skyblue.svg",
+    "assets/resilience-fight-shirt-skyblue.svg",
   );
   await page.locator('input[name="kanji-shine"]').uncheck();
-  await expect(shirtImages.nth(0)).toHaveAttribute(
+  await expect(shirtImage).toHaveAttribute(
     "src",
-    "assets/resilience-fly-shirt-skyblue-matte.svg",
+    "assets/resilience-fight-shirt-skyblue-matte.svg",
   );
-  await page
-    .getByRole("button", { name: "Add to demo bag", exact: true })
-    .click();
-  await expect(page.locator("#bag-items")).toContainText("Sky blue kanji");
-  await expect(page.locator("#bag-items")).toContainText("Matte");
+  await page.getByRole("button", { name: "Add to cart", exact: true }).click();
+  await expect(page.locator("#cart-items")).toContainText("Sky blue kanji");
+  await expect(page.locator("#cart-items")).toContainText("Matte");
   await page.locator('input[name="kanji-color"][value="white"]').check();
   await expect(page.locator('input[name="kanji-shine"]')).toBeDisabled();
-  await expect(shirtImages.nth(0)).toHaveAttribute(
+  await expect(shirtImage).toHaveAttribute(
     "src",
-    "assets/resilience-fly-shirt.svg",
+    "assets/resilience-fight-shirt.svg",
   );
-  await expect(page.locator("#bag-items")).toContainText("FIGHT · 闘");
+  await expect(page.locator("#cart-items")).toContainText("FIGHT · 闘");
 });
 
 test("keyboard: the skip link reaches main and the size controls work without a mouse", async ({
@@ -131,10 +201,10 @@ test("keyboard: the skip link reaches main and the size controls work without a 
   await expect(page.locator('input[name="size"][value="M"]')).toBeChecked();
   await page.keyboard.press("Tab");
   await expect(
-    page.getByRole("button", { name: "Add to demo bag", exact: true }),
+    page.getByRole("button", { name: "Add to cart", exact: true }),
   ).toBeFocused();
   await page.keyboard.press("Enter");
-  await expect(page.locator("#bag-count")).toHaveText("1");
+  await expect(page.locator("#cart-count")).toHaveText("1");
 });
 
 for (const route of ["/", "/styleguide.html", "/studio.html"]) {
