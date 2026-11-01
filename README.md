@@ -4,7 +4,7 @@
 
 This student project is a draft storefront for **Never Say Never**, a resilience concept. It presents one white T-shirt with FLY, FIGHT, and DREAM kanji marks, four ink colors, and a shine option for colored ink. The related style guide and design explorations document the current direction.
 
-**Current status:** The BRAND-001 storefront implementation is on `main`; issue #1 remains open, no pull request is recorded, and no public deployment has been verified. CART-001 is being developed locally on `feature/cart-items-removal` under issue #2. The site is a classroom demo with no checkout, orders, payment, accounts, or persistence.
+**Current status:** The BRAND-001 storefront and CART-001 demo-cart updates are on `main`; issues #1 and #2 are closed, and CART-001 was merged in [PR #4](https://github.com/cocv22/is117-brand-studio/pull/4). No public deployment has been verified; publishing is optional. The site is a classroom demo with no checkout, orders, payment, accounts, or persistence.
 
 **A short record, visible to you:** your AI coach updates [LEARNING.md](LEARNING.md) with brief task-related explanations, observations and help received. It is AI-drafted, not a full transcript, and may be public with your repository. Review it and correct or remove excerpts before they are committed or pushed. Your instructor uses it alongside the project with this [simple three-part rubric](docs/assessment.md); the AI does not assign your grade.
 
@@ -58,7 +58,7 @@ You work at your own pace. There is no required class demonstration, quiz, separ
 
 | File                                   | Purpose                                                                                                    |
 | -------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `public/index.html`                    | BRAND-001 storefront draft; PR review pending                                                              |
+| `public/index.html`                    | BRAND-001 storefront with CART-001 demo-cart updates; merged on `main`                                      |
 | `public/styleguide.html`               | Live identity board using the storefront's shared styles and assets                                        |
 | `public/studio.html`                   | Short studio overview, also [available online](https://kaw393939.github.io/is117-brand-studio/studio.html) |
 | [SPEC.md](SPEC.md)                     | The concise record of your chosen decisions and evidence                                                   |
