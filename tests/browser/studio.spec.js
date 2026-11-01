@@ -59,6 +59,27 @@ test("DREAM · 夢 shows its context and is carried into the cart", async ({
   await expect(page.locator("#cart-items")).toContainText("DREAM · 夢");
 });
 
+test("kanji glosses have a dictionary cross-check with cited sources", async ({
+  page,
+}) => {
+  await page.goto("/styleguide.html");
+  const reviewNote = page.locator("#kanji-review-note");
+  await expect(reviewNote).toContainText("not a fluent-speaker review");
+  await expect(reviewNote).toContainText("とぶ in 飛ぶ");
+  await expect(reviewNote).toContainText("たたかう in 闘う");
+  await expect(reviewNote).toContainText("ゆめ in 夢");
+  await expect(reviewNote).toContainText("creative English copy");
+  await expect(
+    reviewNote.getByRole("link", { name: "KanjiPedia: 飛" }),
+  ).toHaveAttribute("href", "https://www.kanjipedia.jp/kanji/0005817800");
+  await expect(
+    reviewNote.getByRole("link", { name: "KanjiPedia: 闘う" }),
+  ).toHaveAttribute("href", "https://www.kanjipedia.jp/kotoba/0005244300");
+  await expect(
+    reviewNote.getByRole("link", { name: "Jisho: 夢" }),
+  ).toHaveAttribute("href", "https://jisho.org/search/%E5%A4%A2");
+});
+
 test("positive: a shopper can add shirts, see the total, remove one, and clear the cart", async ({
   page,
 }) => {
