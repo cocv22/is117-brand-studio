@@ -16,6 +16,9 @@ test("product price and selected shirt design are shown with two decimals", asyn
   page,
 }) => {
   await page.goto("/");
+  await expect(page.locator("#ink-help")).toHaveText(
+    "Choose white, crimson, gold, or sky blue for the kanji. The circle stays black.",
+  );
   await expect(page.locator(".price")).toContainText("$28.00");
   await expect(page.locator(".product-visual img")).toHaveCount(1);
   const shirtPreview = page.locator("#shirt-preview");
