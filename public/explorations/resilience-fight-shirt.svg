@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 430" role="img">
+  <title>White T-shirt with 闘 in a black circle and FIGHT beneath</title>
+  <path
+    d="M116 39 151 25h58l35 14 58 34-28 67-30-17v252H116V123l-30 17-28-67 58-34Z"
+    fill="#fff"
+    stroke="#c9c9c3"
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+  <path d="M151 26c1 20 12 32 29 32s28-12 29-32" fill="none" stroke="#d7d7d1" stroke-width="6" />
+  <circle cx="180" cy="220" r="49" fill="#151515" />
+  <text x="180" y="241" fill="#fff" font-family="Yu Mincho, MS PMincho, Hiragino Mincho ProN, Noto Serif CJK JP, SimSun, serif" font-size="60" font-weight="700" text-anchor="middle">闘</text>
+</svg>

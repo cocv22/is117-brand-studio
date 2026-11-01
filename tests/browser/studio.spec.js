@@ -23,17 +23,97 @@ test("positive: a shopper can choose sizes, add items, and empty the demo bag", 
     .click();
   await expect(page.locator("#bag-count")).toHaveText("1");
   await expect(page.locator("#bag-status")).toContainText("M");
+  await expect(page.locator("#bag-items")).toContainText("FLY · 飛");
   await page.locator('input[name="size"][value="L"]').check();
+  await page.getByRole("radio", { name: /FIGHT/ }).check();
   await page
     .getByRole("button", { name: "Add to demo bag", exact: true })
     .click();
   await expect(page.locator("#bag-count")).toHaveText("2");
+  await expect(page.locator("#bag-items")).toContainText("FIGHT · 闘");
   await page
     .getByRole("button", { name: "Empty demo bag", exact: true })
     .click();
   await expect(page.locator("#bag-count")).toHaveText("0");
   await page.reload();
   await expect(page.locator("#bag-count")).toHaveText("0");
+});
+
+test("kanji color updates both previews and remains attached to each bag item", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const shirtImages = page.locator(".design-option-content img");
+  await expect(
+    page.locator('input[name="kanji-color"][value="white"]'),
+  ).toBeChecked();
+
+  await page.locator('input[name="kanji-color"][value="gold"]').check();
+  await expect(shirtImages.nth(0)).toHaveAttribute(
+    "src",
+    "assets/resilience-fly-shirt-gold.svg",
+  );
+  await expect(shirtImages.nth(1)).toHaveAttribute(
+    "src",
+    "assets/resilience-fight-shirt-gold.svg",
+  );
+  for (const color of ["gold", "crimson", "skyblue"]) {
+    for (const design of ["fly", "fight"]) {
+      for (const finish of ["", "-matte"]) {
+        const response = await page.request.get(
+          new URL(
+            `assets/resilience-${design}-shirt-${color}${finish}.svg`,
+            page.url(),
+          ).href,
+        );
+        const svg = await response.text();
+        expect(svg).toContain('<circle cx="180" cy="210" r="46" fill="#111"');
+        if (finish) {
+          expect(svg).not.toContain(`fill="url(#kanji-${color})"`);
+        } else {
+          expect(svg).toContain(`<linearGradient id="kanji-${color}"`);
+          expect(svg).toContain(`fill="url(#kanji-${color})"`);
+        }
+      }
+    }
+  }
+
+  await page.locator('input[name="size"][value="M"]').check();
+  await page
+    .getByRole("button", { name: "Add to demo bag", exact: true })
+    .click();
+  await expect(page.locator("#bag-items")).toContainText("Gold kanji");
+  await expect(page.locator("#bag-items")).toContainText("Shine");
+
+  await page.locator('input[name="kanji-color"][value="crimson"]').check();
+  await page.getByRole("radio", { name: /FIGHT/ }).check();
+  await page.locator('input[name="size"][value="L"]').check();
+  await page
+    .getByRole("button", { name: "Add to demo bag", exact: true })
+    .click();
+  await expect(page.locator("#bag-items")).toContainText("Crimson kanji");
+  await page.locator('input[name="kanji-color"][value="skyblue"]').check();
+  await expect(shirtImages.nth(0)).toHaveAttribute(
+    "src",
+    "assets/resilience-fly-shirt-skyblue.svg",
+  );
+  await page.locator('input[name="kanji-shine"]').uncheck();
+  await expect(shirtImages.nth(0)).toHaveAttribute(
+    "src",
+    "assets/resilience-fly-shirt-skyblue-matte.svg",
+  );
+  await page
+    .getByRole("button", { name: "Add to demo bag", exact: true })
+    .click();
+  await expect(page.locator("#bag-items")).toContainText("Sky blue kanji");
+  await expect(page.locator("#bag-items")).toContainText("Matte");
+  await page.locator('input[name="kanji-color"][value="white"]').check();
+  await expect(page.locator('input[name="kanji-shine"]')).toBeDisabled();
+  await expect(shirtImages.nth(0)).toHaveAttribute(
+    "src",
+    "assets/resilience-fly-shirt.svg",
+  );
+  await expect(page.locator("#bag-items")).toContainText("FIGHT · 闘");
 });
 
 test("keyboard: the skip link reaches main and the size controls work without a mouse", async ({

@@ -14,7 +14,7 @@
     "setup:browser": "playwright install chromium",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint": "eslint . && html-validate 'public/**/*.html' && stylelint 'public/**/*.css'",
+    "lint": "eslint . && html-validate \"public/**/*.html\" && stylelint \"public/**/*.css\"",
     "test": "node --test tests/server.test.mjs",
     "test:e2e": "playwright test",
     "check": "npm run format:check && npm run lint && npm test && npm run test:e2e"

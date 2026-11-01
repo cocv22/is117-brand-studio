@@ -1,0 +1,678 @@
+@font-face {
+  font-family: "Lazy Arie";
+  src: url("fonts/Lazy Arie.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #171717;
+  background: #f3f2ee;
+  font-synthesis: none;
+  text-rendering: optimizelegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body.hero-preview-page {
+  margin: 0;
+  background: #f3f2ee;
+  color: #171717;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+.hero-preview-page a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+.hero-preview-page img,
+.hero-preview-page svg {
+  display: block;
+  max-width: 100%;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.preview-header,
+.hero-preview-page main {
+  width: min(100% - 3rem, 1500px);
+  margin-inline: auto;
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 5rem;
+  border-bottom: 1px solid #c7c7c2;
+}
+
+.preview-wordmark {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.preview-status,
+.eyebrow,
+.direction-kicker,
+.stage-index,
+.stage-caption,
+.preview-price span {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.intro {
+  max-width: 60rem;
+  padding-block: clamp(2.5rem, 6vw, 5rem) 2rem;
+}
+
+.eyebrow,
+.direction-kicker {
+  margin: 0 0 0.9rem;
+  font-weight: 700;
+}
+
+.intro h1 {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4.7rem);
+  line-height: 0.98;
+  letter-spacing: -0.07em;
+}
+
+.intro-copy {
+  max-width: 48rem;
+  margin: 1.15rem 0 0;
+  color: #4e4e4b;
+  font-size: 1.05rem;
+}
+
+.shared-copy {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem 1.25rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid #171717;
+  background: #e8e7e1;
+  font-size: 0.88rem;
+}
+
+.shared-copy p {
+  margin: 0;
+}
+
+.logo-studies {
+  margin: 0 0 2.5rem;
+  padding: 1.4rem;
+  border: 1px solid #c7c7c2;
+  background: #e8e7e1;
+}
+
+.logo-studies-heading {
+  max-width: 58rem;
+  margin-bottom: 1.2rem;
+}
+
+.logo-studies-heading h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+}
+
+.annotation p {
+  margin: 0.65rem 0 0;
+}
+
+.logo-studies-heading > p:last-child {
+  max-width: 54rem;
+  margin: 0.65rem 0 0;
+  color: #4e4e4b;
+}
+
+.logo-study-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.logo-study-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  min-width: 0;
+  border: 1px solid #c7c7c2;
+  background: #fbfaf7;
+}
+
+.logo-product-stage {
+  display: grid;
+  min-width: 0;
+  align-items: center;
+  padding: 0.65rem;
+  background: #efeee9;
+}
+
+.logo-product-stage img {
+  width: 100%;
+  filter: drop-shadow(0 0.55rem 0.45rem rgb(0 0 0 / 11%));
+}
+
+.shirt-art {
+  position: relative;
+  width: min(100%, 15rem);
+  justify-self: center;
+}
+
+.shirt-art img {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.shirt-meaning {
+  position: absolute;
+  top: 23%;
+  left: 0;
+  width: 100%;
+  color: #151515;
+  font-family: "Lazy Arie", "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  transform: translateY(-50%);
+}
+
+.logo-study-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1.1rem;
+}
+
+.logo-mark-label {
+  margin: 0 0 0.75rem;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.logo-study-copy h3 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.logo-study-copy > p:not(.logo-mark-label, .preview-price) {
+  margin: 0.75rem 0 0;
+}
+
+.kanji-note {
+  max-width: 70rem;
+  margin: 1rem 0 0;
+  color: #4e4e4b;
+  font-size: 0.85rem;
+}
+
+.kanji-note a {
+  font-weight: 700;
+}
+
+.hero-preview-page a:focus-visible {
+  outline: 3px solid #bc3d20;
+  outline-offset: 4px;
+}
+
+.directions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 1.25rem;
+  padding-block: 1rem 2.5rem;
+}
+
+.direction-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #c7c7c2;
+  background: #fbfaf7;
+}
+
+.direction-heading {
+  min-height: 7rem;
+  padding: 1.2rem 1.25rem 0.7rem;
+  border-bottom: 1px solid #c7c7c2;
+}
+
+.direction-heading h2 {
+  max-width: 22ch;
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  min-height: 31rem;
+}
+
+.product-stage {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 31rem;
+  align-content: center;
+  justify-items: center;
+  overflow: hidden;
+  padding: 3rem 0.8rem 2.3rem;
+}
+
+.product-stage img {
+  z-index: 1;
+  width: min(100%, 16rem);
+  filter: drop-shadow(0 0.8rem 0.6rem rgb(0 0 0 / 11%));
+}
+
+.stage-index,
+.stage-caption {
+  position: absolute;
+  z-index: 2;
+  left: 1rem;
+  color: #42423f;
+  font-size: 0.58rem;
+}
+
+.stage-index {
+  top: 1rem;
+}
+
+.stage-caption {
+  right: 1rem;
+  bottom: 0.8rem;
+  left: auto;
+  text-align: right;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  padding: 2rem clamp(1rem, 2vw, 1.6rem);
+}
+
+.brand-label {
+  margin: 0 0 1rem;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-copy h3 {
+  max-width: 8ch;
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+}
+
+.support-copy {
+  max-width: 22ch;
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.preview-price {
+  margin: 1.5rem 0 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.preview-price span {
+  display: block;
+  margin-top: 0.25rem;
+  color: #595954;
+  font-size: 0.58rem;
+  font-weight: 400;
+}
+
+.preview-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 2.8rem;
+  margin-top: 1.35rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #171717;
+  background: #171717;
+  color: #fff !important;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.preview-action:hover {
+  background: #333;
+}
+
+.annotation {
+  padding: 1.2rem 1.25rem 1.4rem;
+  border-top: 1px solid #c7c7c2;
+  font-size: 0.88rem;
+}
+
+.annotation h3 {
+  margin: 0 0 0.8rem;
+  font-size: 1rem;
+}
+
+.annotation ul {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.8rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.reference-line {
+  font-weight: 700;
+}
+
+.reference-observation {
+  color: #4e4e4b;
+}
+
+.hero-modernist {
+  border-bottom: 1px solid #c7c7c2;
+}
+
+.product-stage-modernist {
+  background: #e8e8e4;
+}
+
+.product-stage-modernist::before,
+.product-stage-modernist::after {
+  position: absolute;
+  width: 19rem;
+  height: 19rem;
+  border: 1px solid #969691;
+  border-radius: 50%;
+  content: "";
+}
+
+.product-stage-modernist::before {
+  transform: translate(-1.8rem, 0.3rem) scaleX(0.85);
+}
+
+.product-stage-modernist::after {
+  width: 15rem;
+  height: 15rem;
+  transform: translate(1.9rem, -0.6rem) scaleX(0.9);
+}
+
+.hero-copy-modernist {
+  border-left: 1px solid #c7c7c2;
+}
+
+.hero-copy-modernist .preview-action {
+  border-radius: 0;
+}
+
+.hero-postmodernist {
+  border-bottom: 1px solid #c7c7c2;
+}
+
+.product-stage-postmodernist {
+  background:
+    radial-gradient(circle at 18% 25%, #171717 0 1.5px, transparent 1.8px) 0 0 /
+      11px 11px,
+    #f1efeb;
+}
+
+.product-stage-postmodernist::before,
+.product-stage-postmodernist::after {
+  position: absolute;
+  width: 14rem;
+  height: 8rem;
+  content: "";
+}
+
+.product-stage-postmodernist::before {
+  top: 18%;
+  left: -3rem;
+  transform: rotate(-16deg);
+  background: #e46b43;
+  opacity: 0.8;
+}
+
+.product-stage-postmodernist::after {
+  right: -4rem;
+  bottom: 15%;
+  transform: rotate(14deg);
+  background: #e6d447;
+  opacity: 0.76;
+}
+
+.product-stage-postmodernist img {
+  transform: rotate(-2deg);
+}
+
+.hero-copy-postmodernist {
+  position: relative;
+  background: #f8f6f0;
+}
+
+.hero-copy-postmodernist::before {
+  position: absolute;
+  top: 13%;
+  right: -0.6rem;
+  width: 0.75rem;
+  height: 4rem;
+  transform: rotate(8deg);
+  background: #e46b43;
+  content: "";
+}
+
+.hero-copy-postmodernist .brand-label {
+  padding: 0.2rem 0.35rem;
+  background: #e6d447;
+}
+
+.hero-copy-postmodernist h3 {
+  text-decoration: underline;
+  text-decoration-color: #e46b43;
+  text-decoration-thickness: 0.14em;
+  text-underline-offset: 0.08em;
+}
+
+.hero-copy-postmodernist .preview-action {
+  transform: rotate(-1deg);
+  border-color: #171717;
+  border-radius: 0.2rem 0 0.25rem;
+  box-shadow: 4px 4px 0 #e46b43;
+}
+
+.preview-footnote {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  color: #4e4e4b;
+  font-size: 0.86rem;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 10;
+  top: 0.5rem;
+  left: 0.5rem;
+  transform: translateY(-160%);
+  padding: 0.65rem 0.8rem;
+  background: #171717;
+  color: white !important;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (width <= 940px) {
+  .directions {
+    grid-template-columns: 1fr;
+  }
+
+  .direction-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.8fr);
+    align-items: stretch;
+  }
+
+  .direction-heading {
+    grid-column: 1 / -1;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+
+  .logo-study-card {
+    grid-template-columns: 1fr;
+  }
+
+  .annotation {
+    border-top: 0;
+    border-left: 1px solid #c7c7c2;
+  }
+}
+
+@media (width <= 620px) {
+  .preview-header,
+  .hero-preview-page main {
+    width: min(100% - 1.25rem, 36rem);
+  }
+
+  .preview-header {
+    min-height: 4rem;
+  }
+
+  .preview-status {
+    max-width: 9rem;
+    text-align: right;
+  }
+
+  .intro {
+    padding-top: 2rem;
+  }
+
+  .shared-copy {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-studies {
+    padding: 0.8rem;
+  }
+
+  .logo-study-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-study-card {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-product-stage {
+    padding: 0.35rem;
+  }
+
+  .logo-study-copy {
+    padding: 0.85rem 0.7rem;
+  }
+
+  .logo-study-copy h3 {
+    font-size: clamp(1.65rem, 8vw, 2.2rem);
+  }
+
+  .logo-study-copy .preview-action {
+    gap: 0.5rem;
+    padding-inline: 0.6rem;
+    font-size: 0.82rem;
+  }
+
+  .direction-card {
+    display: block;
+  }
+
+  .direction-heading {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .product-stage {
+    min-height: 23rem;
+    padding-block: 2.8rem 2rem;
+  }
+
+  .product-stage img {
+    width: min(75%, 15rem);
+  }
+
+  .hero-copy {
+    padding: 1.25rem 1.1rem 1.5rem;
+  }
+
+  .hero-copy h3 {
+    max-width: 12ch;
+    font-size: clamp(2.4rem, 12vw, 3.25rem);
+  }
+
+  .support-copy {
+    max-width: 32ch;
+  }
+
+  .hero-copy-modernist {
+    border-top: 1px solid #c7c7c2;
+    border-left: 0;
+  }
+
+  .annotation {
+    padding-inline: 1rem;
+    border-top: 1px solid #c7c7c2;
+    border-left: 0;
+  }
+
+  .preview-footnote {
+    padding-inline: 0.1rem;
+  }
+}

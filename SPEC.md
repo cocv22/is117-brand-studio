@@ -1,4 +1,4 @@
-# Brand Studio decisions
+﻿# Brand Studio decisions
 
 This is the durable agreement between the learner and agent. Keep it concise and update it only with agreed choices or actual evidence. `Not chosen yet` is a valid status. Persona cards are hypotheses unless supported by real research.
 
@@ -6,37 +6,40 @@ This is the durable agreement between the learner and agent. Keep it concise and
 
 ## Current stage
 
-- Stage: Baseline ready to try; brand decisions pending.
+- Stage: First storefront draft implemented; Modernist direction chosen; PR review and merge decision remain.
 - Current feature: `BRAND-001` — first branded storefront and live style guide.
-- Status: Pending learner scope agreement.
-- Next small decision: Confirm the first slice after trying the neutral storefront.
+- Status: Learner kept the wordmark, approved the product title/context lines, agreed to the low-friction persuasion pair below, and reviewed the revised artwork and colors. They described blue as more relaxed, approved the variety and shine, and reported keyboard color/shine changes worked as intended. They said the mobile layout looked good; the specific visual detail remains not yet evidenced.
+- Tracking: [BRAND-001 issue](https://github.com/cocv22/is117-brand-studio/issues/1); local branch `feature/brand-001-first-storefront`.
+- Next small decision: Review the implementation PR together and ask whether to keep and merge it into main.
 
 ## Product boundary
 
-The product is the same white T-shirt throughout the comparison. The baseline offers a size selector and temporary demo bag. No real orders, payment, accounts, or persistence. Keep product facts stable between directions; do not add unsupported claims about materials, manufacturing, sustainability, fit, delivery, scarcity, reviews, or sales.
+The product is the same white T-shirt throughout the comparison. The learner agreed to offer FLY and FIGHT as selectable design options for that one shirt, with a shared price and size selector. Kanji color options are white, crimson, gold, and sky blue; the circle remains black. Colored inks have a shiny or matte finish option; white remains matte. The demo bag records design, color, finish, and size. No real orders, payment, accounts, or persistence. Keep product facts stable between directions; do not add unsupported claims about materials, manufacturing, sustainability, fit, delivery, scarcity, reviews, or sales.
 
 ## Audience hypotheses
 
 The primary need guides the page. Give the secondary card one contrasting need to check that same page; keep both cards brief.
 
-| Tiny card                             | Primary audience          | Secondary audience        |
-| ------------------------------------- | ------------------------- | ------------------------- |
-| Person in a concrete situation        | Not chosen yet            | Not chosen yet            |
-| Goal or meaning they seek             | Not chosen yet            | Not chosen yet            |
-| Concern before choosing               | Not chosen yet            | Not chosen yet            |
-| What the page should help them decide | Not chosen yet            | Not chosen yet            |
-| Evidence or assumption                | Assumption; not validated | Assumption; not validated |
+| Tiny card                             | Primary audience                                                                                                                                           | Secondary audience                                                               |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Person in a concrete situation        | Primary hypothesis: broad audience seeking encouragement; exact setting not chosen yet                                                                     | Potential contexts: sports or martial arts for FIGHT; career aspirations for FLY |
+| Goal or meaning they seek             | Keep moving forward; both designs express encouragement and are interchangeable                                                                            | Choose the design emphasis that fits their current mindset or aspiration         |
+| Concern before choosing               | Not chosen yet                                                                                                                                             | Not chosen yet                                                                   |
+| What the page should help them decide | Which encouragement mark fits the moment or goal they want it to represent                                                                                 | Whether either context feels relevant; either mark remains available             |
+| Evidence or assumption                | Learner says the designs are interchangeable encouragement; FIGHT may appeal to sports/martial arts, FLY to career aspirations. Hypotheses, not validated. | Learner-proposed possibilities; not validated                                    |
 
 ## Early brand brief
 
-| Decision                                 | Agreement      |
-| ---------------------------------------- | -------------- |
-| Brand name                               | Not chosen yet |
-| One-sentence promise                     | Not chosen yet |
-| Primary archetype: the brand's character | Not chosen yet |
-| Three voice traits                       | Not chosen yet |
-| One example line in this voice           | Not chosen yet |
-| Learner's predicted audience effect      | Not chosen yet |
+| Decision                                 | Agreement                                                                            |
+| ---------------------------------------- | ------------------------------------------------------------------------------------ |
+| Brand name                               | Never Say Never (learner choice)                                                     |
+| One-sentence promise                     | Not chosen yet                                                                       |
+| Primary archetype: the brand's character | Hero (resilience); learner choice because the image shows rising again after failure |
+| Three voice traits                       | Bold; encouraging; empathetic (learner's word: empathy)                              |
+| One example line in this voice           | Not chosen yet                                                                       |
+| Learner's predicted audience effect      | Student predicts that getting back up reminds someone they are not defeated.         |
+
+Learner's draft slogan (not a promise): “Keep your head up. No matter how heavy the storm, the sky will rise again.”
 
 ## Visual decision
 
@@ -44,25 +47,31 @@ Compare two small hero previews before building the whole page. Hold the product
 
 A simple original SVG wordmark is enough. Show small-size and one-color presentations; they may use the same asset when it works.
 
-| Item                                              | Agreement or evidence |
-| ------------------------------------------------- | --------------------- |
-| Shared headline / support / action                | Not chosen yet        |
-| Modernist preview, reference, and annotations     | Not chosen yet        |
-| Postmodernist preview, reference, and annotations | Not chosen yet        |
-| Chosen direction and reason                       | Not chosen yet        |
-| Original SVG logo                                 | Not chosen yet        |
-| Monochrome and small-size variants                | Not chosen yet        |
-| Logo review at actual use size                    | Not checked yet       |
-| Shared palette, typography, spacing, and assets   | Not chosen yet        |
+**Earlier illustration idea (superseded in the current preview):** A defeated figure beside one getting back up. The learner later asked to remove the figure because it looked bad in this scenery. The current logo/message studies show white shirts with only a black kanji mark; the matched hero mockups use plain white shirts.
+
+**Earlier shirt messages (superseded):** The learner previously proposed separate FLY and FIGHT concepts with motivational text beside the shirt. In the latest storefront review, they said that additional text would be filler given the product and requested the product-focused title “T-shirt with encouraging kanji.” The current previews now omit a separate slogan. The two marks remain draft options, not a final selection. Their circle/meaning treatment and local-font licensing note are recorded above; the symbols have not had Japanese-language review.
+
+| Item                                              | Agreement or evidence                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Shared product title / action                     | Current paired previews use “T-shirt with encouraging kanji.” with “Choose your size”; separate motivational copy was removed after learner review.                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Modernist preview, reference, and annotations     | [Preview](public/explorations/index.html#modernist), annotated from [Josef Müller-Brockmann, _Concert poster_ (1953), MoMA](https://www.moma.org/collection/works/6239?page=1); broad arcs, clear grid, compact hierarchy, and a plain white shirt. Effect/risk are noted in the preview.                                                                                                                                                                                                                                                                    |
+| Postmodernist preview, reference, and annotations | [Preview](public/explorations/index.html#postmodernist), annotated from [April Greiman, _Your Turn, My Turn_ (1983), Cooper Hewitt](https://www.cooperhewitt.org/design-topics/women-in-design/april-greiman/); overlapping frames, clipped texture, and offset accent color. Effect/risk are noted in the preview.                                                                                                                                                                                                                                          |
+| Separate logo/message studies                     | The [FLY 飛](public/explorations/index.html#logo-studies) and [FIGHT 闘](public/explorations/index.html#logo-studies) options both signal encouragement and are interchangeable. Learner-provided cues: FLY, “To the heights you haven't reached”; FIGHT, “To the opponents you will face.” Learner reviewed the lines in the preview and likes them. Their audience contexts are hypotheses, not validated.                                                                                                                                                 |
+| Chosen direction and reason                       | Modernist; learner chose it because the brand is aiming for a simple style. Selection recorded before storefront implementation.                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Storefront presentation                           | Learner requested “T-shirt with encouraging kanji” as the product title, said other text would be filler given the product, then approved the revised draft. Learner agreed FLY and FIGHT are design options for the same white T-shirt and supplied a brief context line for each. They requested a looser, shorter silhouette, white/crimson/gold/sky-blue kanji colors, adjustable shine on colored kanji, and more space between the script and kanji. They observed the shiny crimson as flashy and said it may strengthen the message for some people. |
+| Original SVG logo                                 | Learner approved the existing simple “Never Say Never” wordmark with “keep.”                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Monochrome and small-size variants                | Shared SVG shown in the style guide at small navigation size and as a monochrome asset.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Logo review at actual use size                    | Learner chose to keep the draft; no reason was provided.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Shared palette, typography, spacing, and assets   | Not chosen yet                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 ## Ethical persuasion
 
 Choose two applications that help the visitor make a voluntary, informed decision. Record their real implementation and mechanism rather than a principle name alone. Required size selection or validation alone does not establish consistency. Do not invent social proof, scarcity, authority, or product facts.
 
-| Principle      | Actual copy or interaction | Visitor benefit / factual support |
-| -------------- | -------------------------- | --------------------------------- |
-| Not chosen yet | Not chosen yet             | Not chosen yet                    |
-| Not chosen yet | Not chosen yet             | Not chosen yet                    |
+| Principle   | Actual copy or interaction                                                                               | Visitor benefit / factual support                                                                                            |
+| ----------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Reciprocity | Free FLY/FIGHT context lines appear before design choice; no purchase or sign-up is needed to read them. | Gives shoppers clear design context; the audience associations are the learner's hypotheses, not validated research.         |
+| Consistency | Shopper voluntarily selects a mark and color; adding the shirt carries those choices into the demo bag.  | The bag reflects the shopper's prior choice. The voluntary design selection, not required size selection, is the commitment. |
 
 ## BRAND-001 — first branded storefront and live style guide
 
@@ -82,9 +91,11 @@ Keep when:
 
 Write a short result and link only evidence that exists. A passing browser check is evidence for its assertions, not customer research or proof of full accessibility.
 
-| Spec ID   | Files           | Issue / PR      | Actual checks and observations            |
-| --------- | --------------- | --------------- | ----------------------------------------- |
-| BRAND-001 | Not changed yet | Not created yet | Not run yet; learner observations pending |
+**Maintenance baseline (before branded preview work):** `npm ci` completed. `npm run check` passed after formatting and correcting the Windows glob quoting in `package.json`; it ran format/lint, 7 server tests, and 10 Chromium browser tests. This records starter behavior, not brand fit.
+
+| Spec ID   | Files                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Issue / PR                                                                   | Actual checks and observations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| BRAND-001 | [Storefront](public/index.html), [shop behavior](public/shop.js), [shared styles](public/styles.css), [live guide](public/styleguide.html), [wordmark](public/assets/wordmark.svg), [FLY artwork: white](public/assets/resilience-fly-shirt.svg), [FLY artwork: crimson](public/assets/resilience-fly-shirt-crimson.svg), [FLY artwork: gold](public/assets/resilience-fly-shirt-gold.svg), [FLY artwork: sky blue](public/assets/resilience-fly-shirt-skyblue.svg), [FIGHT artwork](public/assets/resilience-fight-shirt.svg), [browser checks](tests/browser/studio.spec.js), [paired previews](public/explorations/index.html) | [Issue #1](https://github.com/cocv22/is117-brand-studio/issues/1); no PR yet | `npm run check` passed after the sky-blue and finish update: format/lint, 7 server tests, 11 Chromium tests. Browser checks verify all three colored inks in shiny/matte variants for both designs, fixed black circles, color/finish retained in the demo bag, and white remaining matte. Page integrity/accessibility and 375px overflow checks passed. Learner described blue as more relaxed, approved the variety and shine, and reported the keyboard color/shine controls worked as intended. They said the mobile layout looked good; the exact visual detail remains not yet evidenced. |
 
 ## Later
 

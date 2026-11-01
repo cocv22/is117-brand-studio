@@ -5,36 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="An unfinished, neutral T-shirt storefront for the IS117 Brand Studio. Build a brand through deliberate, visible design choices."
+      content="White T-shirt with a choice of two encouraging kanji concepts. This classroom demo does not take orders or payments."
     />
-    <title>Your Brand — neutral storefront starter</title>
+    <title>Never Say Never — T-shirt with encouraging kanji</title>
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="styles.css" />
     <script src="shop.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <aside class="starter-notice" aria-label="Starter information">
+    <aside class="starter-notice" aria-label="Demonstration notice">
       <span
-        ><strong>Unfinished by design.</strong> This is a neutral teaching
-        starter. Replace its identity after your brand decisions.</span
+        ><strong>Classroom demo.</strong> No checkout, orders, or
+        payments.</span
       >
-      <a href="studio.html"
-        >Enter the studio <span aria-hidden="true">↗</span></a
-      >
+      <a href="studio.html">Project notes <span aria-hidden="true">↗</span></a>
     </aside>
     <header class="site-header wrap">
-      <a
-        class="brand-link"
-        href="index.html"
-        aria-label="Your Brand storefront home"
-        ><img
+      <a class="brand-link" href="index.html" aria-label="Never Say Never home">
+        <img
           class="wordmark"
           src="assets/wordmark.svg"
-          alt="Neutral starter wordmark"
+          alt="Never Say Never"
           width="175"
-          height="26"
-      /></a>
+          height="34"
+        />
+      </a>
       <nav class="main-nav" aria-label="Main navigation">
         <a class="nav-link" href="index.html" aria-current="page">Shop</a>
         <a class="nav-link" href="styleguide.html">Style guide</a>
@@ -42,42 +38,136 @@
           >Studio <span aria-hidden="true">↗</span></a
         >
       </nav>
-      <a class="bag-link" href="#demo-bag" aria-label="View demo bag"
-        >Demo bag <span id="bag-count" class="bag-count">0</span></a
-      >
+      <a class="bag-link" href="#demo-bag" aria-label="View demo bag">
+        Demo bag <span id="bag-count" class="bag-count">0</span>
+      </a>
     </header>
 
     <main id="main">
       <section class="product-section wrap" aria-labelledby="product-title">
         <div class="product-visual">
           <div class="visual-label">
-            <span>001 / The starting point</span><span>Unbranded</span>
+            <span>001 / Keep moving</span><span>Early concept</span>
           </div>
-          <img
-            class="shirt-image"
-            src="assets/white-shirt.svg"
-            alt="Plain white, unbranded short-sleeved T-shirt"
-            width="800"
-            height="880"
-            fetchpriority="high"
-          />
-          <div class="image-caption">
-            <span>One product. Room for your point of view.</span
-            ><span aria-hidden="true">↙</span>
-          </div>
+          <fieldset class="design-fieldset" aria-describedby="design-help">
+            <legend class="visually-hidden">Choose a kanji mark concept</legend>
+            <p id="design-help" class="field-help design-help">
+              Two draft marks for the same white T-shirt.
+            </p>
+            <div class="design-options">
+              <label class="design-option">
+                <input type="radio" name="design" value="FLY · 飛" checked />
+                <span class="design-option-content">
+                  <img
+                    src="assets/resilience-fly-shirt.svg"
+                    alt="Relaxed white T-shirt with the FLY kanji in white inside a black circle"
+                    width="360"
+                    height="430"
+                    fetchpriority="high"
+                  />
+                  <span class="shirt-meaning" aria-hidden="true">FLY</span>
+                  <span class="design-option-label"
+                    >FLY <span lang="ja">飛</span></span
+                  >
+                  <span class="design-option-context"
+                    >To the heights you haven't reached.</span
+                  >
+                </span>
+              </label>
+              <label class="design-option">
+                <input type="radio" name="design" value="FIGHT · 闘" />
+                <span class="design-option-content">
+                  <img
+                    src="assets/resilience-fight-shirt.svg"
+                    alt="Relaxed white T-shirt with the FIGHT kanji in white inside a black circle"
+                    width="360"
+                    height="430"
+                  />
+                  <span class="shirt-meaning" aria-hidden="true">FIGHT</span>
+                  <span class="design-option-label"
+                    >FIGHT <span lang="ja">闘</span></span
+                  >
+                  <span class="design-option-context"
+                    >To the opponents you will face.</span
+                  >
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset class="ink-fieldset" aria-describedby="ink-help">
+            <legend>Choose kanji color</legend>
+            <p id="ink-help" class="field-help ink-help">
+              Choose white, crimson, gold, or sky blue for the kanji. The circle
+              stays black.
+            </p>
+            <div class="ink-options">
+              <label class="ink-option">
+                <input type="radio" name="kanji-color" value="white" checked />
+                <span class="ink-option-content">
+                  <span
+                    class="ink-swatch ink-swatch-white"
+                    aria-hidden="true"
+                  ></span>
+                  <span>White</span>
+                </span>
+              </label>
+              <label class="ink-option">
+                <input type="radio" name="kanji-color" value="crimson" />
+                <span class="ink-option-content">
+                  <span
+                    class="ink-swatch ink-swatch-crimson"
+                    aria-hidden="true"
+                  ></span>
+                  <span>Crimson</span>
+                </span>
+              </label>
+              <label class="ink-option">
+                <input type="radio" name="kanji-color" value="gold" />
+                <span class="ink-option-content">
+                  <span
+                    class="ink-swatch ink-swatch-gold"
+                    aria-hidden="true"
+                  ></span>
+                  <span>Gold</span>
+                </span>
+              </label>
+              <label class="ink-option">
+                <input type="radio" name="kanji-color" value="skyblue" />
+                <span class="ink-option-content">
+                  <span
+                    class="ink-swatch ink-swatch-skyblue"
+                    aria-hidden="true"
+                  ></span>
+                  <span>Sky blue</span>
+                </span>
+              </label>
+            </div>
+            <label class="shine-option">
+              <input
+                class="shine-toggle"
+                type="checkbox"
+                name="kanji-shine"
+                checked
+              />
+              <span class="shine-label">Shine on colored kanji</span>
+            </label>
+            <p class="field-help shine-help">
+              Shine applies to crimson, gold, and sky blue. White stays matte.
+            </p>
+          </fieldset>
+          <p class="image-caption">
+            <span
+              >Draft symbols; Japanese language review is still needed.</span
+            >
+            <span aria-hidden="true">↘</span>
+          </p>
         </div>
         <div class="product-information">
           <p class="eyebrow">
-            <span class="status-dot" aria-hidden="true"></span> Neutral product
-            / demo only
+            <span class="status-dot" aria-hidden="true"></span> Never Say Never
+            / draft identity
           </p>
-          <h1 id="product-title">The white<br />T-shirt.</h1>
-          <p class="product-intro">A plain shirt. A place to begin.</p>
-          <p class="muted product-description">
-            This starter has a working product page and room for a brand. Its
-            audience, personality, message, and visual direction are still yours
-            to decide.
-          </p>
+          <h1 id="product-title">T-shirt with encouraging kanji.</h1>
           <div class="price-row">
             <p class="price">$28 <span>USD</span></p>
             <span class="micro-label">Fictional demo price</span>
@@ -119,21 +209,21 @@
             </button>
           </form>
           <p class="demo-disclaimer">
-            A classroom interaction, using fictional product data. No order,
-            payment, or personal information is collected.
+            A classroom interaction with fictional product data. Nothing is
+            ordered, and no payment or personal information is collected.
           </p>
           <dl class="product-facts">
             <div>
-              <dt>Color</dt>
-              <dd>White</dd>
+              <dt>Shirt</dt>
+              <dd>White T-shirt</dd>
             </div>
             <div>
-              <dt>Brand identity</dt>
-              <dd>Not decided yet</dd>
+              <dt>Mark</dt>
+              <dd>Two draft concepts</dd>
             </div>
             <div>
-              <dt>Product claims</dt>
-              <dd>None supplied</dd>
+              <dt>Availability</dt>
+              <dd>Demonstration only</dd>
             </div>
           </dl>
         </div>
@@ -167,30 +257,15 @@
           </p>
         </div>
       </section>
-
-      <section class="starter-next wrap" aria-labelledby="next-title">
-        <p class="eyebrow">For the person building this site</p>
-        <h2 id="next-title">The shirt stays.<br />The story is your work.</h2>
-        <div>
-          <p>
-            Choose who this is for, decide what the brand should express, and
-            make those choices visible. Keep the storefront and its
-            <a href="styleguide.html">live style guide</a> in sync.
-          </p>
-          <a class="button button-secondary" href="studio.html"
-            >See the studio brief <span aria-hidden="true">↗</span></a
-          >
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer wrap">
       <p>
-        IS117 Brand Studio <span class="footer-separator"> / </span> Neutral
-        starter
+        Never Say Never <span class="footer-separator"> / </span> IS117 Brand
+        Studio
       </p>
       <p class="footer-tagline">Fictional product. Real design decisions.</p>
-      <a href="https://github.com/kaw393939/is117-brand-studio#readme"
+      <a href="https://github.com/cocv22/is117-brand-studio#readme"
         >Project README <span aria-hidden="true">↗</span></a
       >
     </footer>

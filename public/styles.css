@@ -1,12 +1,20 @@
 /* Shared brand tokens. Change these after you agree on your brand direction.
    Both the storefront and the live style guide use this file. */
+@font-face {
+  font-family: "Lazy Arie";
+  src: url("explorations/fonts/Lazy Arie.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
-  --color-paper: #f6f5f0;
-  --color-ink: #171a18;
-  --color-muted: #5a615b;
-  --color-line: #d1d5cc;
-  --color-accent: #e3ef56;
-  --color-soft: #e8eae1;
+  --color-paper: #fff;
+  --color-ink: #111;
+  --color-muted: #5c5c5c;
+  --color-line: #d6d6d6;
+  --color-accent: #e5e5e5;
+  --color-soft: #f3f3f3;
   --color-white: #fff;
   --color-danger: #992e28;
   --font-body:
@@ -185,7 +193,8 @@ p + p {
   align-items: center;
   gap: 1.5rem;
   padding: 0.8rem 3rem;
-  background: var(--color-accent);
+  background: var(--color-ink);
+  color: var(--color-white);
   font-size: 0.73rem;
   line-height: 1.5;
 }
@@ -193,6 +202,7 @@ p + p {
 .starter-notice a {
   flex-shrink: 0;
   font-weight: 650;
+  color: var(--color-white);
 }
 
 .site-header {
@@ -265,6 +275,7 @@ p + p {
 .product-visual {
   position: relative;
   background: var(--color-soft);
+  padding: 3.5rem 1.25rem 0;
 }
 
 .visual-label {
@@ -294,6 +305,243 @@ p + p {
   font-size: 0.59rem;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.design-help {
+  margin: 0 0 1rem;
+}
+
+.design-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.design-option {
+  position: relative;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.design-option input {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.design-option-content {
+  position: relative;
+  display: block;
+  border: 1px solid var(--color-line);
+  padding: 0.55rem;
+  background: var(--color-white);
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.design-option input:checked + .design-option-content {
+  border-color: var(--color-ink);
+  box-shadow: inset 0 0 0 1px var(--color-ink);
+}
+
+.design-option input:focus-visible + .design-option-content {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+.design-option-content img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 360 / 430;
+  object-fit: contain;
+}
+
+.shirt-meaning {
+  position: absolute;
+  top: 23%;
+  left: 0.55rem;
+  width: calc(100% - 1.1rem);
+  color: var(--color-ink);
+  font-family: "Lazy Arie", "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.design-option-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.25rem 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.05em;
+}
+
+.design-option-label [lang="ja"] {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+}
+
+.design-option-context {
+  display: block;
+  min-height: 2.6em;
+  padding: 0.1rem 0.25rem 0.35rem;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.ink-fieldset {
+  margin-top: 1rem;
+}
+
+.ink-help {
+  margin-bottom: 0.65rem;
+}
+
+.ink-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.ink-option {
+  position: relative;
+  cursor: pointer;
+}
+
+.ink-option input {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.ink-option-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.65rem;
+  border: 1px solid var(--color-line);
+  padding: 0.45rem 0.7rem;
+  background: var(--color-white);
+  font-size: 0.75rem;
+}
+
+.ink-option input:checked + .ink-option-content {
+  border-color: var(--color-ink);
+  box-shadow: inset 0 0 0 1px var(--color-ink);
+}
+
+.ink-option input:focus-visible + .ink-option-content {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+.ink-swatch {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 1rem;
+  border: 1px solid rgb(0 0 0 / 25%);
+  border-radius: 50%;
+}
+
+.ink-swatch-white {
+  background: #fff;
+}
+
+.ink-swatch-crimson {
+  background: linear-gradient(
+    180deg,
+    #c65367 0%,
+    #92283e 28%,
+    #e48694 50%,
+    #681b2d 74%,
+    #a7374d 100%
+  );
+}
+
+.ink-swatch-gold {
+  background: linear-gradient(
+    180deg,
+    #fff0ad 0%,
+    #d7ad3d 28%,
+    #fff3b2 50%,
+    #b9851b 74%,
+    #e7c557 100%
+  );
+}
+
+.ink-swatch-skyblue {
+  background: linear-gradient(
+    180deg,
+    #a9d9ff 0%,
+    #327bb5 28%,
+    #d0ecff 50%,
+    #20527d 74%,
+    #6eb4e8 100%
+  );
+}
+
+.shine-option {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.8rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.shine-option input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--color-ink);
+}
+
+.shine-option .shine-toggle:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+.shine-option .shine-toggle:disabled + .shine-label {
+  color: var(--color-muted);
+}
+
+.shine-help {
+  margin: 0.25rem 0 0;
+}
+
+.guide-note .ink-swatch {
+  display: inline-block;
+  margin-inline: 0.15rem;
+  vertical-align: middle;
+}
+
 .image-caption > :last-child {
   font-family: var(--font-body);
   font-size: 1.5rem;
@@ -307,19 +555,6 @@ p + p {
 
 .product-information h1 {
   margin-top: 1.6rem;
-}
-
-.product-intro {
-  font-size: 1.2rem;
-  line-height: 1.5;
-  margin-top: 1.8rem;
-  letter-spacing: -0.025em;
-}
-
-.product-description {
-  margin-top: 0.6rem;
-  font-size: 0.88rem;
-  max-width: 430px;
 }
 
 .price-row {
@@ -457,8 +692,8 @@ legend {
 }
 
 .button-primary:hover {
-  background: var(--color-accent);
-  color: var(--color-ink);
+  background: #404040;
+  color: var(--color-white);
 }
 
 .button-secondary {
@@ -568,9 +803,62 @@ legend {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem 3rem;
-  background: var(--color-accent);
+  background: var(--color-soft);
   padding: 2.7rem 3rem 3rem;
   margin-block: 1rem 4rem;
+}
+
+.mark-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.mark-guide-item {
+  position: relative;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-white);
+}
+
+.mark-shirt-art {
+  position: relative;
+  width: min(100%, 260px);
+  margin-inline: auto;
+}
+
+.mark-shirt-art img {
+  width: 100%;
+  height: auto;
+}
+
+.mark-shirt-art .shirt-meaning {
+  left: 0;
+  width: 100%;
+}
+
+.mark-guide-item figcaption {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  border-top: 1px solid var(--color-line);
+  padding-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+.mark-guide-item small {
+  display: block;
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+}
+
+.mark-guide-item .mark-context {
+  color: var(--color-ink);
+  font-weight: 600;
 }
 
 .starter-next > .eyebrow {
@@ -907,6 +1195,21 @@ legend {
   margin-bottom: 0.65rem;
 }
 
+.voice-grid ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.voice-grid li {
+  margin-bottom: 0.65rem;
+  color: var(--color-muted);
+  font-size: 0.84rem;
+}
+
+.voice-grid li strong {
+  color: var(--color-ink);
+}
+
 .voice-grid p {
   font-size: 0.84rem;
   color: var(--color-muted);
@@ -975,10 +1278,6 @@ legend {
     padding-top: 0.5rem;
   }
 
-  .product-intro {
-    margin-top: 1.4rem;
-  }
-
   .price-row {
     margin-top: 1.5rem;
   }
@@ -995,6 +1294,10 @@ legend {
   .palette-grid {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 1.6rem;
+  }
+
+  .mark-guide-grid {
+    gap: 0.65rem;
   }
 }
 
@@ -1076,15 +1379,6 @@ legend {
   .product-information h1 {
     font-size: clamp(4.2rem, 13vw, 7rem);
     margin-top: 1rem;
-  }
-
-  .product-intro {
-    font-size: 1.1rem;
-    margin-top: 1.4rem;
-  }
-
-  .product-description {
-    max-width: 580px;
   }
 
   .product-facts {
@@ -1179,6 +1473,10 @@ legend {
 
   .palette-grid {
     grid-template-columns: repeat(5, 1fr);
+  }
+
+  .mark-guide-grid {
+    grid-template-columns: 1fr;
   }
 
   .color-swatch {
