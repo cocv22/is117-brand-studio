@@ -231,7 +231,7 @@ test("keyboard: the skip link reaches main and the size controls work without a 
   await expect(page.locator("#cart-count")).toHaveText("1");
 });
 
-for (const route of ["/", "/styleguide.html", "/studio.html"]) {
+for (const route of ["/", "/styleguide.html", "/studio.html", "/research.html"]) {
   test(`page integrity and automated accessibility: ${route}`, async ({
     page,
   }) => {
