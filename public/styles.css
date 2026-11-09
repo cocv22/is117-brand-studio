@@ -1524,6 +1524,10 @@ legend {
 }
 
 @media (width <= 420px) {
+  .product-information h1 {
+    font-size: clamp(2.75rem, 10vw, 4.2rem);
+  }
+
   .starter-notice {
     align-items: start;
     flex-direction: column;
