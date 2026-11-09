@@ -6,13 +6,13 @@ This checkpoint records brand and audience hypotheses, observations from three c
 
 ## Evidence and source record
 
-| Competitor | Date observed | Observation | Implication for Never Say Never |
-| --- | --- | --- | --- |
-| [UNIQLO](https://www.uniqlo.com/us/en/) | Nov 4, 2026 | Product information and customer ratings/reviews help visitors evaluate clothing; the site's restrained organization makes browsing approachable. | Use clear product information and a simple, consistent layout; show genuine reviews only if they exist. |
-| [Threadless](https://www.threadless.com/) | Nov 4, 2026 | A wide range of artwork and creator-oriented presentation allows different styles to appeal to different shoppers. | Allow visual variety while repeating recognizable brand elements. |
-| [Supreme](https://us.supreme.com/) | Nov 4, 2026 | A distinctive bold identity and straightforward product presentation support recognition, while scarcity-based merchandising can influence attention. | Make the shirt graphics expressive and the surrounding site legible; do not claim scarcity that has not been established. |
+| Competitor                                | Date observed | Observation                                                                                                                                           | Implication for Never Say Never                                                                                           |
+| ----------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| [UNIQLO](https://www.uniqlo.com/us/en/)   | Nov 4, 2026   | Product information and customer ratings/reviews help visitors evaluate clothing; the site's restrained organization makes browsing approachable.     | Use clear product information and a simple, consistent layout; show genuine reviews only if they exist.                   |
+| [Threadless](https://www.threadless.com/) | Nov 4, 2026   | A wide range of artwork and creator-oriented presentation allows different styles to appeal to different shoppers.                                    | Allow visual variety while repeating recognizable brand elements.                                                         |
+| [Supreme](https://us.supreme.com/)        | Nov 4, 2026   | A distinctive bold identity and straightforward product presentation support recognition, while scarcity-based merchandising can influence attention. | Make the shirt graphics expressive and the surrounding site legible; do not claim scarcity that has not been established. |
 
-These are *qualitative student observations*, not controlled usability findings. Detailed screenshots, interpretations of archetypes, persuasion, modernism/postmodernism, and the original notes are maintained in [Competitor Research — Screenshots & Findings](https://app.notion.com/p/40ec9546b3e9809880edd6b667c9fd7c).
+These are _qualitative student observations_, not controlled usability findings. Detailed screenshots, interpretations of archetypes, persuasion, modernism/postmodernism, and the original notes are maintained in [Competitor Research — Screenshots & Findings](https://app.notion.com/p/40ec9546b3e9809880edd6b667c9fd7c).
 
 ## Positioning alternatives
 
@@ -34,18 +34,18 @@ The shared value is **perseverance**. A customer should not need to be visibly s
 - **Voice:** Supportive without being passive; bold without hostility.
 - **Customer promise:** Clothing for self-expression and a symbolic reminder to keep moving forward — **not** a guarantee of personal success.
 - **Trust:** Accurate photos, descriptions, sizing and policies, when verified. Do not invent material details, interviews, testimonials, scarcity or reviews.
-- **Site experience:** Keep navigation simple and product selections clear. The existing website is a *classroom demo*; it does not accept orders or payments.
+- **Site experience:** Keep navigation simple and product selections clear. The existing website is a _classroom demo_; it does not accept orders or payments.
 
 ## Peer challenge, response and disposition
 
 The student presented the two audience mindsets and competitor observations in an AI-assisted discussion; the student reports that the instructor approved using this discussion for the class feedback activity.
 
-| Challenge raised | Student response | Decision / next step |
-| --- | --- | --- |
-| Will one brand work for someone struggling and someone confident? | A simple common message and design can reach both. | **Implement in documentation:** Make perseverance the common thread; avoid exclusivity. |
-| How can varied designs stay recognizable? | Repeat kanji, sharp artwork and succinct mottos. | **Investigate:** Keep recurring cues; explore limited customization, not yet implemented. |
-| What would create first-visit product trust? | Credible interviews and detailed material descriptions. | **Defer unsupported claims:** Provide only actual product facts and authentic evidence when available. |
-| What about someone who likes the artwork but not the motto? | Consider alternate mottos or a no-motto choice. | **Investigate:** Artwork should stand alone; no-motto option not committed to production. |
+| Challenge raised                                                  | Student response                                        | Decision / next step                                                                                   |
+| ----------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Will one brand work for someone struggling and someone confident? | A simple common message and design can reach both.      | **Implement in documentation:** Make perseverance the common thread; avoid exclusivity.                |
+| How can varied designs stay recognizable?                         | Repeat kanji, sharp artwork and succinct mottos.        | **Investigate:** Keep recurring cues; explore limited customization, not yet implemented.              |
+| What would create first-visit product trust?                      | Credible interviews and detailed material descriptions. | **Defer unsupported claims:** Provide only actual product facts and authentic evidence when available. |
+| What about someone who likes the artwork but not the motto?       | Consider alternate mottos or a no-motto choice.         | **Investigate:** Artwork should stand alone; no-motto option not committed to production.              |
 
 The more complete record of the questions, responses and open questions is in the [Brand Studio Notion page](https://app.notion.com/p/412c9546b3e9816091f5e90eab39cc60) and [feedback issue #5](https://github.com/cocv22/is117-brand-studio/issues/5).
 
