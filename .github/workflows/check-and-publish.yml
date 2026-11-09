@@ -19,14 +19,6 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Temporary formatting diagnostics
-        run: |
-          npx prettier --write docs/research-checkpoint-2026-11.md public/research.html README.md
-          for file in docs/research-checkpoint-2026-11.md public/research.html README.md; do
-            echo "FORMATTED_FILE_BEGIN $file"
-            base64 -w0 "$file"
-            printf '\nFORMATTED_FILE_END %s\n' "$file"
-          done
       - run: npx playwright install --with-deps chromium
       - run: npm run check
 
