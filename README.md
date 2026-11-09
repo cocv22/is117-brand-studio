@@ -58,7 +58,7 @@ You work at your own pace. There is no required class demonstration, quiz, separ
 
 | File                                   | Purpose                                                                                                    |
 | -------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `public/index.html`                    | BRAND-001 storefront with CART-001 demo-cart updates; merged on `main`      |
+| `public/index.html`                    | BRAND-001 storefront with CART-001 demo-cart updates; merged on `main`                                     |
 | `public/styleguide.html`               | Live identity board using the storefront's shared styles and assets                                        |
 | `public/studio.html`                   | Short studio overview, also [available online](https://kaw393939.github.io/is117-brand-studio/studio.html) |
 | [SPEC.md](SPEC.md)                     | The concise record of your chosen decisions and evidence                                                   |
