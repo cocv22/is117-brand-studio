@@ -108,3 +108,62 @@ Write a short result and link only evidence that exists. A passing browser check
 **Status:** Merged into `main` in [PR #4](https://github.com/cocv22/is117-brand-studio/pull/4); [issue #2 is closed](https://github.com/cocv22/is117-brand-studio/issues/2). Learner explained that selecting DREAM changes the shirt logo and wording like the other designs, giving it a different meaning that may appeal more to a customer.
 
 **Evidence:** [Storefront](public/index.html), [cart behavior](public/shop.js), [shared styles](public/styles.css), [DREAM artwork](public/assets/resilience-dream-shirt.svg), [live style guide](public/styleguide.html), and [browser checks](tests/browser/studio.spec.js). `npm run check` passed formatting/lint, 7 server tests, and 13 Chromium tests before merge. Browser checks cover DREAM selection and cart storage, all DREAM ink/finish variants, page integrity/accessibility, and narrow-screen layout. Agent visual inspection covered storefront and style-guide desktop views plus storefront controls, style-guide marks, and the studio overview at 375px. Learner explained that the selected design changes the shirt logo and wording, and may appeal to a customer through a different meaning; in a later browser observation, they reported that the kanji and symbol change when DREAM is selected. These are prototype observations and hypotheses, not customer validation.
+
+## IS117-005 — T-shirt Plan (November 16, 2026)
+
+**Status:** Five learner-approved stories and a preferred design direction; proposed features are not yet implemented or verified. This extends the existing Brand Studio storefront and [research checkpoint](docs/research-checkpoint-2026-11.md) rather than replacing them. [PLAN-001 feedback issue #9](https://github.com/cocv22/is117-brand-studio/issues/9) tracks review and further changes.
+
+### Goal, audience, and brand
+
+- **Goal:** A classroom-only Never Say Never store for one white T-shirt with FLY / 飛, FIGHT / 闘, or DREAM / 夢 graphics.
+- **Primary audience hypothesis:** People seeking a wearable reminder of encouragement during everyday challenges. **Secondary hypothesis:** People wishing to express determination and ambition. Perseverance connects both; neither group has been validated through customer research.
+- **Promise:** Clothing as self-expression and a reminder to keep moving forward, **not** a promise of success.
+- **Character and voice:** Hero / resilience; bold, encouraging, empathetic.
+- **Visual design:** Clean Modernist organization around expressive kanji artwork and the original wordmark. Reuse the [live style guide](public/styleguide.html) and [annotated Modernist/Postmodernist concepts](public/explorations/index.html) instead of recreating them. Kanji glosses have dictionary checks, not a fluent-speaker review; English encouragement phrases are creative copy, not literal translations.
+- **Classroom product assumptions:** One white T-shirt, $28 concept price, sizes S/M/L/XL, kanji inks white/crimson/gold/sky blue, colored inks matte/shiny and white matte only. Do not invent materials, measurements, sales, stock, policies, reviews, or actual shipping.
+
+### Two concise approaches for the same task
+
+| | A — Product-led hybrid (**preferred**) | B — Story-led hybrid (**alternative**) |
+| --- | --- | --- |
+| First emphasis | Product, $28 price, design choices and concise meaning beside customization | A brief brand story and meaning of FLY/FIGHT/DREAM before the same product controls |
+| Main journey | View shirt → select meaning and options → Preview Design → bag/quantity → demo checkout | Read brief promise → compare meanings → select options → Preview Design → bag/quantity → demo checkout |
+| Visitor benefit to test | Quickly see the offer and choose without much reading | Understand symbolic meaning before customizing |
+| Potential cost | Less context for a first-time visitor | More reading before reaching controls |
+
+Both keep the same offer, designs, words, price, essential controls, data model and simulated checkout; **information order and emphasis** differ. A peer should attempt the same task in both: choose DREAM in gold matte, size M, preview, make quantity 2, check the $56 total, and describe how they would complete a demo order. Record what they actually notice without coaching. A preference alone cannot prove better sales or isolate causal effects. Both versions may share the code and SQLite backend; implementing and comparing them belongs to the Build checkpoint.
+
+### Five approved user stories, essential features, and observable acceptance checks
+
+| ID | User story | Essential feature | Observable acceptance checks (planned, not yet passed) |
+| --- | --- | --- | --- |
+| **S1 / F1 — Understand** | As a shopper seeking encouragement, I want to understand each design's message so I can choose one that reflects my goals or mindset. | The selected design's short motivational explanation appears directly beneath design choices. | Switching FLY/FIGHT/DREAM immediately updates the **name and explanatory text**, including on mobile. The shirt image changes **only on Preview Design**, per S2. |
+| **S2 / F2 — Customize** | As a shopper, I want to choose my design, ink color, finish, and size so that the shirt reflects my preferences. | Selectors and an explicit **Preview Design** button. | Option changes mark the image preview as out of date; pressing Preview Design updates the artwork, color and finish; white ink stays matte; missing size prevents adding to bag; bag records actual selections even when the preview is stale. |
+| **S3 / F3 — Review** | As a shopper, I want to review my shirts, quantities, and total before demo checkout. | Bag with plus/minus quantity controls and remove action. | Show design, color, finish, size, quantity and price. Changing quantity of a $28 shirt from 1 to 2 produces $56, changing back produces $28; removing an item updates total; disallow invalid/negative quantities and carry correct data into checkout. |
+| **S4 / F4 — Confirm** | As a shopper, I want to complete demo checkout without personal information and get a reference proving my choices were saved. | Reference-only simulated checkout with Node.js validation and **real SQLite** order persistence. | Reject empty bag and unsupported configurations; calculate totals on server rather than trusting browser amounts; save valid synthetic line items and return a unique demo reference; retrieve the record by reference **after server restart**; never show success if saving fails; no payments, names, email or addresses. |
+| **S5 / F5 — Trust** | As a first-time visitor, I want accessible sizing guidance, product details and demo policies to make an informed choice. | Independently expandable sizing, product, delivery, returns and help sections **below** shopping controls. | Each section opens/closes with keyboard as well as pointer; readable on a narrow screen; available sizes are clear; any fictional contact/return/delivery policies and unverified fabric/fit details are plainly identified as classroom assumptions. |
+
+**S1/S2 clarification:** The text explanation changes when a different design is selected, but the **shirt illustration is deliberately not refreshed** until the shopper presses Preview Design. The page must indicate when the image is out of date. Adding to bag must use the actual form selections, not stale preview state.
+
+### Honest persuasion (retained from Brand Studio)
+
+- **Reciprocity:** Explain each kanji design and its creative message for free before checkout, without registration or an obligation to buy. This helps a visitor understand options; no effect on conversion has been measured.
+- **Consistency:** Carry the shopper's **voluntary** graphic and ink selections from product controls to bag, summary and demo checkout. Required size validation alone does not establish voluntary commitment.
+
+No fake scarcity, testimonials, authority, or unverified product claims.
+
+### SQLite backend and simulated checkout plan
+
+- **Existing implementation:** `public/index.html` and `public/shop.js` provide a temporary in-memory demo bag and automatic image updates; `server.mjs` serves static files. There is no persisted order or SQLite functionality in the checked baseline.
+- **Planned local backend:** Adapt the [instructor's runnable SQLite starter](https://kaw393939.github.io/is117-demo-days/examples/submissions/run-examples.html). Use Node.js to accept only synthetic demo orders, validate permissible design/color/finish/size and positive whole-number quantities, calculate the $28-per-shirt price and authoritative total, and persist an order plus its line items and unique reference in a local SQLite file. No private customer data is required.
+- **States:** Empty cart; invalid/missing choice; preview out of date; ready to submit; save in progress; persisted confirmation; save error without false success.
+- **Persistence demonstration:** Run local server, submit a synthetic two-shirt order, record the reference, retrieve it, restart the server, retrieve the same record and confirm its $56 total and selections. Record the **actual** command, database path and results once tested; these are not yet available.
+- **Published-site boundary:** GitHub Pages cannot execute the local SQLite backend. The public pages must honestly label browser-only preview/simulation if used, and link local backend instructions. Browser storage alone **does not** satisfy SQLite.
+- **Keep out of scope:** Real transactions or cards, real delivery, customer accounts, customer identities, broad customization, and unsupported commercial claims.
+
+### Plan review and implementation handoff
+
+- **Student decisions:** Product-led hybrid A preferred; B retained for comparison; S1 explanation placement A; S2 Preview Design button B; S3 cart quantities B; S4 reference-only order C; S5 expandable information B. These are user-approved design choices, not evidence of passing tests.
+- **Peer question and reviewer retest:** Await actual classmate response on [PLAN-001 issue #9](https://github.com/cocv22/is117-brand-studio/issues/9); ask them to explain a story and its pass/fail check, respond with a decision and reason, link the resulting PR/commit and verification, then request a retry. If no peer is available, document the request and contact the instructor. Do not fabricate a review.
+- **Review plan:** Check source links and documentation; run prepared GitHub Actions/format/browser checks and report their actual results. At Build, add relevant new automated and manual tests and get same-task feedback on A/B.
+- **AI assistance:** ChatGPT helped organize stories, acceptance checks, alternatives and backend requirements. Student selected the experience and must verify the implementation, claims, and final submission.
